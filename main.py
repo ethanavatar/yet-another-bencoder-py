@@ -1,28 +1,23 @@
 import src.bencode as bc
 import src.bdecode as bd
 
-def main():
-    '''
-    Tests each object handled by bencode/bdecode
-    '''
-    s = bc.encode("the quick brown fox jumps over the lazy dog")
-    print(s)
+def test():
 
-    i = bc.encode(1)
-    print(i)
+    s = "the quick brown fox jumps over the lazy dog"
+    i = 40320
+    l = ['a', 'b', 1, 2]
+    d = {'a': 1, 'b': 2}
 
-    l = bc.encode(['a', 'b', 1, 2])
-    print(l)
-
-    d = bc.encode({'a': 1, 'b': 2})
-    print(d)
-
-    print()
-
-    print(bd.decode(s))
-    print(bd.decode(i))
-    #print(bd.decode(l)) TODO
-    #print(bd.decode(d)) TODO
+    print('forward:\n')
+    print(f'original: {s}\nencoded: {bc.encode(s)}\n')
+    print(f'original: {i}\nencoded: {bc.encode(i)}\n')
+    print(f'original: {l}\nencoded: {bc.encode(l)}\n')
+    print(f'original: {d}\nencoded: {bc.encode(d)}\n')
+    print('backward:\n')
+    print(f'encoded: {bc.encode(s)}\ndecoded: {bd.decode(bc.encode(s))}\n')
+    print(f'encoded: {bc.encode(i)}\ndecoded: {bd.decode(bc.encode(i))}\n')
+    print(f'encoded: {bc.encode(l)}\ndecoded: {bd.decode(bc.encode(l))}\n')
+    print(f'encoded: {bc.encode(d)}\ndecoded: {bd.decode(bc.encode(d))}\n')
 
 if __name__ == "__main__":
-    main()
+    test()
