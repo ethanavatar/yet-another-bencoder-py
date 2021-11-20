@@ -5,7 +5,7 @@ As if we need more.
 
 You can install the latest commit of the package directly from the GitHub repository using the following command:
 ```bash
-python3 -m pip install git+https://github.com/ethanavatar/yet-another-bencoder.git
+python3 -m pip install git+https://github.com/ethanavatar/yet-another-bencoder-py.git
 ```
 
 The package contains two modules that can be used independently, each containing only their respective member functions.
